@@ -1,12 +1,15 @@
 #!/bin/bash
 
 REPO_NAME="vani-pkgs"
-REPO_URL="https://vani1-2.github.io/vani-pkgs" 
+REPO_URL="https://vani1-2.github.io/vani-pkgs"
 ROOT_OUTPUT="index.html"
 RPM_OUTPUT="rpm/index.html"
 DEB_OUTPUT="deb/index.html"
 
-# --- 1. Generate Root Index ---
+
+mkdir -p rpm deb
+
+
 cat > $ROOT_OUTPUT <<EOF
 <!DOCTYPE html>
 <html>
@@ -17,7 +20,7 @@ cat > $ROOT_OUTPUT <<EOF
         h1 { margin-bottom: 20px; text-transform: lowercase; font-family: monospace;}
         .card { 
             background: #1e1e1e; border: 1px solid #333; padding: 20px; 
-            margin: 10px auto; max-width: 500px; border-radius: 8px; 
+            margin: 10px auto; max-width: 600px; border-radius: 8px; 
         }
         a { color: #81a2be; text-decoration: none; font-size: 1.2em; font-weight: bold; }
         a:hover { color: #b5bd68; }
@@ -25,9 +28,9 @@ cat > $ROOT_OUTPUT <<EOF
             background: #000; padding: 15px; border-radius: 4px; 
             font-family: monospace; font-size: 0.85em; color: #fabd2f; 
             margin-top: 15px; display: block; text-align: left;
-            overflow-x: auto; white-space: nowrap;
+            overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
         }
-        .label { color: #666; font-size: 0.8em; display: block; margin-bottom: 5px; text-align: left;}
+        .label { color: #666; font-size: 0.8em; display: block; margin-bottom: 5px; text-align: left; font-weight: bold;}
     </style>
 </head>
 <body>
@@ -46,8 +49,14 @@ cat > $ROOT_OUTPUT <<EOF
         <a href="deb/">📂 DEB Repository</a>
         <p>Debian / Ubuntu / Mint</p>
         <div class="cmd">
-            <span class="label"># Install Repo:</span>
-            echo "deb [trusted=yes] $REPO_URL/deb ./" | sudo tee /etc/apt/sources.list.d/vani-pkgs.list
+            <span class="label"># 1. Add GPG Key:</span>
+curl -s --compressed "$REPO_URL/vani-pkgs.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/vani-pkgs.gpg > /dev/null
+
+            <br><span class="label"># 2. Add Source:</span>
+echo "deb $REPO_URL/deb ./" | sudo tee /etc/apt/sources.list.d/vani-pkgs.list
+
+            <br><span class="label"># 3. Update:</span>
+sudo apt update
         </div>
     </div>
 </body>
@@ -55,7 +64,7 @@ cat > $ROOT_OUTPUT <<EOF
 EOF
 echo "Generated Root Index ($ROOT_OUTPUT)"
 
-# --- 2. Generate RPM Index ---
+
 cat > $RPM_OUTPUT <<EOF
 <!DOCTYPE html>
 <html>
@@ -74,7 +83,9 @@ cat > $RPM_OUTPUT <<EOF
     <a href="../" class="back">.. (Go Back)</a>
 EOF
 
-for file in $(ls -1 rpm/*.rpm 2>/dev/null); do
+
+for file in rpm/*.rpm; do
+    [ -e "$file" ] || continue
     filename=$(basename "$file")
     echo "    <a href=\"$filename\">$filename</a>" >> $RPM_OUTPUT
 done
@@ -82,7 +93,7 @@ done
 echo "</body></html>" >> $RPM_OUTPUT
 echo "Generated RPM Index ($RPM_OUTPUT)"
 
-# --- 3. Generate DEB Index ---
+
 cat > $DEB_OUTPUT <<EOF
 <!DOCTYPE html>
 <html>
@@ -101,7 +112,9 @@ cat > $DEB_OUTPUT <<EOF
     <a href="../" class="back">.. (Go Back)</a>
 EOF
 
-for file in $(ls -1 deb/*.deb 2>/dev/null); do
+
+for file in deb/*.deb; do
+    [ -e "$file" ] || continue
     filename=$(basename "$file")
     echo "    <a href=\"$filename\">$filename</a>" >> $DEB_OUTPUT
 done
