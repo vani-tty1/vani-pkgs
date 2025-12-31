@@ -3,13 +3,19 @@ name: Update APT Repo
 on:
   push:
     paths:
-      - 'deb/*.deb' # Only runs when you add a deb file
+      - 'deb/*.deb'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
+    # FIX: Define secrets here so ALL steps can use them
+    env:
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -17,26 +23,31 @@ jobs:
         run: sudo apt-get install -y dpkg-dev apt-utils
 
       - name: Import GPG Key
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           echo "$GPG_PRIVATE_KEY" | gpg --import --batch --yes
-          # Configure GPG to use the passphrase automatically if needed
-          echo "allow-loopback-pinentry" > ~/.gnupg/gpg-agent.conf
-          echo "pinentry-mode loopback" > ~/.gnupg/gpg.conf
+          # Configure GPG for non-interactive mode
+          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+          # Reload agent to apply config
+          gpgconf --kill gpg-agent
 
       - name: Generate Metadata & Sign
         run: |
           cd deb
+          
           # Generate Packages
           dpkg-scanpackages --multiversion . > Packages
           gzip -k -f Packages
+          
           # Generate Release
           apt-ftparchive release . > Release
+          
           # Sign
           rm -f Release.gpg InRelease
+          
+          # We use --passphrase-fd 0 to read the password from the echo command
           echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --default-key "giovannirafanan609@gmail.com" -abs -o - Release > Release.gpg
+          
           echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --default-key "giovannirafanan609@gmail.com" --clearsign -o - Release > InRelease
 
       - name: Update HTML Index
