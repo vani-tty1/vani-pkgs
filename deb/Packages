@@ -1,0 +1,28 @@
+Package: kaczynski
+Version: 0.0.1
+Architecture: amd64
+Maintainer: Vani1-2 <giovannirafanan609@gmail.com>
+Depends: libncurses6, libncursesw6
+Filename: ./kaczynski-amd64.deb
+Size: 23372
+MD5sum: 1ebe28dc7fa46a02a7ce35be31510f35
+SHA1: 2d2abef3103b028a38e1520a6810e700a275a626
+SHA256: 52b0af5d06961f0c2461e0737461e8188e8c37ebd80b7d3c2bc6610d7ea83525
+Section: utils
+Priority: optional
+Description: Text editor made by Limitless Trolling
+
+Package: memerist
+Version: 0.1.4-1
+Architecture: amd64
+Maintainer: Vani1-2 <giovannirafanan609@gmail.com>
+Depends: libgtk-4-1, libglib2.0-0, libadwaita-1-0
+Filename: ./memerist-amd64.deb
+Size: 742602
+MD5sum: 7378f7103b9fcaa6d3725d61f91bb3a8
+SHA1: b649aa65b35bc4c931c4f917e739e98a77d94871
+SHA256: c7797df4fb6bd17683727435950fffd73c56977439cf3e39c079c3d378553cde
+Section: utils
+Priority: optional
+Description: Meme editor for the GNOME Desktop
+
