@@ -1,15 +1,11 @@
 name: Deploy Static Content to Pages
 
 on:
-  # Option 1: Only run when YOU click the button
+  # Manual trigger
   workflow_dispatch:
-
-  # Option 2: Run on push, but IGNORE specific files 
-  # push:
-  #   branches: ["main"]
-  #   paths-ignore:
-  #     - 'README.md'
-  #     - '.github/**'
+  # Or trigger on push (optional)
+  push:
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -33,11 +29,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
+      # --- THIS IS THE MISSING MAGIC STEP ---
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: .
+          destination: ./_site
+      # --------------------------------------
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          
-          path: '.'
+          # Note: We now upload the '_site' folder where Jekyll built the final HTML
+          path: ./_site
       
       - name: Deploy to GitHub Pages
         id: deployment
