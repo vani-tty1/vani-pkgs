@@ -50,11 +50,9 @@ jobs:
           
           echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --default-key "giovannirafanan609@gmail.com" --clearsign -o - Release > InRelease
 
-      - name: Update HTML Index
-        run: chmod +x gen-index.sh && ./gen-index.sh
 
       - name: Commit & Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-update repo metadata and signatures"
-          file_pattern: 'deb/Packages* deb/Release* deb/InRelease *.html */index.html'
+          file_pattern: 'deb/Packages* deb/Release* deb/InRelease'

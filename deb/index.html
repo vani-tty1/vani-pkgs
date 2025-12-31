@@ -1,3 +1,7 @@
+---
+layout: none
+title: Index of /deb
+---
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +17,12 @@
 <body>
     <h2>Index of /deb</h2>
     <a href="../" class="back">.. (Go Back)</a>
-    <a href="kaczynski-amd64.deb">kaczynski-amd64.deb</a>
-    <a href="memerist_0.1.4-1_amd64.deb">memerist_0.1.4-1_amd64.deb</a>
-</body></html>
+
+    {% for file in site.static_files %}
+        {% if file.path contains 'deb/' and file.extname == '.deb' %}
+            <a href="{{ file.path | relative_url }}">{{ file.name }}</a>
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
