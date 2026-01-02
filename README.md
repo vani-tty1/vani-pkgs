@@ -1,6 +1,12 @@
-# This is a repo for `.rpm` and `.deb` files
+# This is a repo for `.deb` files
 
-view the contents of this repo:
+This is a repo containing the packages:
+1. memerist
+2. kaczynski (package of Limitless Troller from the Linux Mint Discord server.)
+
+
+
+view the contents of this repo and how to enable it:
 
 
 <p>

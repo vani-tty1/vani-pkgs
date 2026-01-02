@@ -22,18 +22,8 @@
 </head>
 <body>
     <h1>vani-pkgs</h1>
-    
     <div class="card">
-        <a href="rpm/">📂 RPM Repository</a>
-        <p>Fedora / RHEL / CentOS</p>
-        <div class="cmd">
-            <span class="label"># Install Repo:</span>
-            sudo dnf config-manager --add-repo https://vani1-2.github.io/vani-pkgs/rpm/
-        </div>
-    </div>
-
-    <div class="card">
-        <a href="deb/">📂 DEB Repository</a>
+        <a href="deb/">📂 view packages in this repo [here]</a>
         <p>Debian / Ubuntu / Mint</p>
         <div class="cmd">
             <span class="label"># 1. Add GPG Key:</span>
@@ -44,6 +34,7 @@ echo "deb https://vani1-2.github.io/vani-pkgs/deb ./" | sudo tee /etc/apt/source
 
             <br><span class="label"># 3. Update:</span>
 sudo apt update
+sudo apt install memerist
         </div>
     </div>
 </body>
