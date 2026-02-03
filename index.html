@@ -26,10 +26,10 @@
         <p>Debian / Ubuntu / Mint</p>
         <div class="cmd">
             <span class="label"># 1. Add GPG Key:</span>
-curl -s --compressed "https://vani1-2.github.io/vani-pkgs/deb/vani-pkgs.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/vani-pkgs.gpg > /dev/null
+curl -s --compressed "https://vani-tty1.github.io/vani-pkgs/deb/vani-pkgs.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/vani-pkgs.gpg > /dev/null
 
             <br><span class="label"># 2. Add Source:</span>
-echo "deb https://vani1-2.github.io/vani-pkgs/deb ./" | sudo tee /etc/apt/sources.list.d/vani-pkgs.list
+echo "deb https://vani-tty1.github.io/vani-pkgs/deb ./" | sudo tee /etc/apt/sources.list.d/vani-pkgs.list
 
             <br><span class="label"># 3. Update:</span>
 sudo apt update
