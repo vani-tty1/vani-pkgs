@@ -18,10 +18,10 @@ Architecture: amd64
 Maintainer: Vani1-2 <giovannirafanan609@gmail.com>
 Depends: libgtk-4-1, libglib2.0-0, libadwaita-1-0
 Filename: ./memerist-amd64.deb
-Size: 1063432
-MD5sum: af95abc588ad0b95b272a46080abf01e
-SHA1: b9b8bb6b846c44c79ce8329f7523fc2d8a2c526a
-SHA256: e3092335cc2913931d8a242bd87ce10c17ef0ef83ed3e9c4203f1892f6690f49
+Size: 1066554
+MD5sum: 29322d1351e2dd1f75cef0084e0df8de
+SHA1: 1e559fda4c8d7dac9f716c988c6b12826484bcef
+SHA256: 3f9915da85e5bef28009f5fd2883b4da6a316fd9f81983404ce6488d5f3bd528
 Section: utils
 Priority: optional
 Description: Meme editor for the GNOME Desktop
