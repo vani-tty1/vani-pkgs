@@ -28,6 +28,21 @@ Description: Meme editor for the GNOME Desktop
 
 Package: pulsemeeter
 Version: 2.0.0-1
+Architecture: amd64
+Maintainer: vani-tty1 <giovannirafanan609@gmail.com>
+Installed-Size: 20063
+Depends: python3, python3-gi, gir1.2-gtk-4.0, pulseaudio, python3-pydantic | pipewire-pulse
+Filename: ./pulsemeeter_2.0.0-1_amd64.deb
+Size: 4800516
+MD5sum: acfcff0e1a5093c78507e3ad2fd42d78
+SHA1: 56e77aa757738337265e631be5b15be78507f88f
+SHA256: 7c24a31a5cba57cda0c16038fc9424e90b6c2978a84a2500730fa9ada38c22bb
+Section: sound
+Priority: optional
+Description: An audio routing application
+
+Package: pulsemeeter
+Version: 2.0.0-1
 Architecture: all
 Maintainer: vani-tty1 <giovannirafanan@gmail.com>
 Installed-Size: 456
