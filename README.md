@@ -4,7 +4,7 @@ This is a repo containing the packages:
 
 1. **memerist** (official way to get the `.deb` of my side quest project)
 2. **kaczynski** (package of Limitless Troller from the Linux Mint Discord server.)
-
+3. **pulsemeeter** (an audio routing application)
 
 
 ## How to enable this repo:
