@@ -31,12 +31,12 @@ Version: 2.0.0-1
 Architecture: all
 Maintainer: vani-tty1 <giovannirafanan@gmail.com>
 Installed-Size: 456
-Depends: python3-gi, python3-pulsectl, python3-pydantic, python3:any, gir1.2-gtk-4.0, pulseaudio | pipewire-pulse
+Depends: python3-gi, python3-pulsectl, python3-pydantic, python3:any, gir1.2-gtk-4.0, pulseaudio | pipewire-pulse, python3-pulsectl-asyncio
 Filename: ./pulsemeeter_2.0.0-1_all.deb
-Size: 115076
-MD5sum: 736eae3c9ce2a7b3d5eaea42b80eb3f1
-SHA1: b04e6ec0908093a48e29a57da911c779a8b55aab
-SHA256: 78673c9e420a379051836ce3d906f733f64e5c29b1f0cfc570fff6349eeb8330
+Size: 115230
+MD5sum: ddc6f3770bff6629453ab2e583ad1fcb
+SHA1: 295ef1e86eba415ed651b646ebf8e5cf1f13dd4f
+SHA256: 517f62b9fa0013f12196c499c1b86c7ca816ba8685df820d26afb46ea25d7688
 Section: sound
 Priority: optional
 Description: A pulseaudio audio routing application
