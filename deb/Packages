@@ -13,33 +13,18 @@ Priority: optional
 Description: Text editor made by Limitless Trolling
 
 Package: memerist
-Version: 0.3.2-1
+Version: 0.3.4-1
 Architecture: amd64
 Maintainer: Vani1-2 <giovannirafanan609@gmail.com>
 Depends: libgtk-4-1, libglib2.0-0, libadwaita-1-0
 Filename: ./memerist-amd64.deb
-Size: 1066554
-MD5sum: 29322d1351e2dd1f75cef0084e0df8de
-SHA1: 1e559fda4c8d7dac9f716c988c6b12826484bcef
-SHA256: 3f9915da85e5bef28009f5fd2883b4da6a316fd9f81983404ce6488d5f3bd528
+Size: 1068226
+MD5sum: 6c23045a5a807ce9b5159c83176c37ac
+SHA1: 6f58a33719cdb53d87431b483369131c22c27b47
+SHA256: 74458687747488a678f93050d13640b0feeecdff16ce6d07f78f0a8f8fe5d40e
 Section: utils
 Priority: optional
 Description: Meme editor for the GNOME Desktop
-
-Package: pulsemeeter
-Version: 2.0.0-1
-Architecture: amd64
-Maintainer: vani-tty1 <giovannirafanan609@gmail.com>
-Installed-Size: 20063
-Depends: python3, python3-gi, gir1.2-gtk-4.0, pulseaudio, python3-pydantic | pipewire-pulse
-Filename: ./pulsemeeter_2.0.0-1_amd64.deb
-Size: 4800516
-MD5sum: acfcff0e1a5093c78507e3ad2fd42d78
-SHA1: 56e77aa757738337265e631be5b15be78507f88f
-SHA256: 7c24a31a5cba57cda0c16038fc9424e90b6c2978a84a2500730fa9ada38c22bb
-Section: sound
-Priority: optional
-Description: An audio routing application
 
 Package: pulsemeeter
 Version: 2.0.0-1
@@ -55,4 +40,19 @@ SHA256: 517f62b9fa0013f12196c499c1b86c7ca816ba8685df820d26afb46ea25d7688
 Section: sound
 Priority: optional
 Description: A pulseaudio audio routing application
+
+Package: pulsemeeter
+Version: 2.0.0-1
+Architecture: amd64
+Maintainer: vani-tty1 <giovannirafanan609@gmail.com>
+Installed-Size: 20063
+Depends: python3, python3-gi, gir1.2-gtk-4.0, pulseaudio, python3-pydantic | pipewire-pulse
+Filename: ./pulsemeeter_2.0.0-1_amd64.deb
+Size: 4800516
+MD5sum: acfcff0e1a5093c78507e3ad2fd42d78
+SHA1: 56e77aa757738337265e631be5b15be78507f88f
+SHA256: 7c24a31a5cba57cda0c16038fc9424e90b6c2978a84a2500730fa9ada38c22bb
+Section: sound
+Priority: optional
+Description: An audio routing application
 
